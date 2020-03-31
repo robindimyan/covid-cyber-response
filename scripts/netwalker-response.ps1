@@ -1,3 +1,6 @@
+###     Netwalker Response Script       ###
+###   Author: Ahmet Kotan (@0r1gamic)   ###
+
 $tmp_path = $env:TEMP
 $infected_processes = Get-Process | Where-Object {$_.Path -Like "*$tmp_path*"}
 
