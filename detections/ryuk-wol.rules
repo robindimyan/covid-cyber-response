@@ -1,0 +1,1 @@
+alert udp any any -> any any (msg:"Consecutive WoL Packets Detected - Might Be Ryuk!!"; pcre:"/\xff{6}(.{6}){15}/"; threshold:type threshold, track by_src, count 5, seconds 60; priority:1; sid:1000001; rev:1;)
