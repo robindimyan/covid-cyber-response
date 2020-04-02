@@ -1,0 +1,36 @@
+title: Ransom.Netwalker Detection
+id: 47a5ff8d-f00f-4da5-bf19-f2f628c367c6
+status: experimental
+references:
+    - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
+description: Detects Netwalker Dropper Activity and Registry Modification
+author: Robin Dimyanoglu
+date: 02/04/2020
+tags:
+    - attack.defense_evasion
+    - attack.t1140
+    - attack.t1064
+logsource:
+    product: windows
+    service: security
+detection:
+    selection_registry:
+      EventID: 4657
+      ProcessName: 'C:\Users\\*\AppData\Local\Temp\\*.exe'
+      ObjectName: '*\SOFTWARE\\*'
+    selection_file:
+      EventID: 4656
+      ObjectName: 'C:\Users\\*\AppData\Local\Temp\\*.exe'
+      ProcessName|endswith:
+        - '\wscript.exe'
+        - '\cscript.exe'
+    selection_execute:
+      EventID: 4688
+      NewProcessName: 'C:\Users\\*\AppData\Local\Temp\\*.exe'
+      ParentProcessName|endswith:
+        - '\wscript.exe'
+        - '\cscript.exe'
+    condition: selection_registry or selection_file or selection_execute
+falsepositives:
+  - Unknown
+level: high
