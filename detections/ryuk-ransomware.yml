@@ -18,7 +18,7 @@ detection:
       CommandLine|contains: 'REG ADD "*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "svchos" /t REG_SZ /d'
     selection_registry:
       EventID: 4657
-      TargetObject: '*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\svchos'
+      ObjectName: '*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\svchos'
     condition: selection_commandline or selection_registry
 falsepositives:
   - Unknown
