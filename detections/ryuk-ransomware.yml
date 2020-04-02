@@ -1,0 +1,25 @@
+title: Ransom.RYUK Detection
+id: b04c31a5-6331-4737-83c4-9bcc0206948a
+status: experimental
+references:
+    - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
+description: Detects Ryuk Persistence Activity
+author: Ahmet Guler, Robin Dimyanoglu
+date: 02/04/2020
+tags:
+    - attack.persistence
+    - attack.t1060
+logsource:
+    product: windows
+    service: security
+detection:
+    selection_commandline:
+      EventID: 4688
+      CommandLine|contains: 'REG ADD "*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "svchos" /t REG_SZ /d'
+    selection_registry:
+      EventID: 4657
+      TargetObject: '*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\svchos'
+    condition: selection_commandline or selection_registry
+falsepositives:
+  - Unknown
+level: high
