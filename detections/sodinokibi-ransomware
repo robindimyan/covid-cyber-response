@@ -1,0 +1,31 @@
+title: Ransom.Sodinokibi Detection
+id: b4981ea1-49ed-4c83-8864-00583ed7b587
+status: experimental
+references:
+    - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
+description: Detects Sodinokibi Ransom Note and Shadow Copy Deletion Activity
+author: Robin Dimyanoglu
+date: 02/05/2020
+logsource:
+    product: windows
+    service: security
+detection:
+    selection_shadowcopy_ps:
+      EventID: 4688
+      NewProcessName|endswith: 'powershell.exe'
+      CommandLine: '-e RwBlAHQALQBXAG0AaQBPAGIAagBlAGMAdAAgAFcAaQBuADMAMgBfAFMAaABhAGQAbwB3AGMAbwBwAHkAIAB8ACAARgBvAHIARQBhAGMAaAAtAE8AYgBqAGUAYwB0ACAAewAkAF8ALgBEAGUAbABlAHQAZQAoACkAOwB9AA=='
+    selection_shadowcopy_cmd:
+      EventID: 4688
+      NewProcessName|endswith: 'cmd.exe'
+      CommandLine|contains:
+        - 'vssadmin.exe Delete Shadows /All /Quiet'
+        - 'bcdedit /set {default} recoveryenabled No'
+    selection_ransomnote:
+      EventID: 4656
+      ObjectName|endswith: '-readme.txt'
+    condition:
+      - selection_ransomnote | count() by ProcessId > 10
+      - 1 of selection_shadowcopy*
+falsepositives:
+  - Unknown
+level: high
