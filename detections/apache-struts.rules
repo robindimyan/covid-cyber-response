@@ -1,0 +1,2 @@
+alert tcp any any -> any any (msg:"Apache Struts2 Exploitation Attempt (cve2017-5638)"; pcre:"/Content-Type: [\$\%]\{.*\}/"; sid:1000002; reference:cve,2017-5638; classtype:attempted-user; priority:4; nocase; rev:1;)
+alert tcp any any -> any any (msg:"Apache Struts2 Exploitation Attempt (cve2017-5638)"; flow:to_server,established; content:"com.opensymphony.xwork2.ActionContext.container"; sid:1000003; reference:cve,2017-5638; classtype:attempted-user; priority:4; nocase; rev:1;)
