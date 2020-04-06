@@ -1,3 +1,11 @@
+# Trickbot Response Script
+# Author: Ahmet Kotan (@0r1gamic)
+
+# 1 - Pathinde %Application Data% dizini geçcen Scheduled Task'i bul
+# 2 - Taskin pathine git ve dosyayi masaustune .malware uzantisiyla tasi
+# 3 - Scheduled Task'i kaldir
+# 4 - Bilgisayara reboot at
+
 $desktop_path = [Environment]::GetFolderPath("Desktop")
 $app_data_directory = $env:APPDATA
 
