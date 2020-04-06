@@ -1,6 +1,11 @@
 ###     Netwalker Response Script       ###
 ###   Author: Ahmet Kotan (@0r1gamic)   ###
 
+# 1) Pathinde %TEMP% geçen prosesleri bul
+# 2) Buldugun tum prosesleri durdur
+# 3) Zararliyi bulundugu konumdan masaustune .malware uzantisiyla tasi
+
+
 $tmp_path = $env:TEMP
 $infected_processes = Get-Process | Where-Object {$_.Path -Like "*$tmp_path*"}
 
