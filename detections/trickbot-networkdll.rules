@@ -1,0 +1,13 @@
+alert tcp any any -> any any (
+    msg:"Trickbot Banking Trojan networkDll Module"; \
+    flow:to_server,established; \
+    content:"|2d 2d|Arasfjasu7"; \
+    fast_pattern; \
+    nocase; \
+    content:"|3d 22|proclist|22|"; \
+    content:"|3d 22|sysinfo|22|"; \
+    classtype:trojan-activity; \
+    metadata:author FeCassie; \
+    sid:1000023; \
+    rev:1;
+    )
