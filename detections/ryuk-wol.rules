@@ -1,4 +1,4 @@
-alert udp any any -> any any (
+alert udp any any -> any any ( \
     msg:"Consecutive WoL Packets Detected - Might Be Ryuk!!"; \
     content:"|FF FF FF FF FF FF|"; \
     depth:6; \
