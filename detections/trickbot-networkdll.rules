@@ -1,4 +1,4 @@
-alert tcp any any -> any any (
+alert tcp any any -> any any ( \
     msg:"Trickbot Banking Trojan networkDll Module"; \
     flow:to_server,established; \
     content:"|2d 2d|Arasfjasu7"; \
