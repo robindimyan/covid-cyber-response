@@ -5,7 +5,7 @@ references:
     - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
 description: Detects Sodinokibi Ransom Note and Shadow Copy Deletion Activity
 author: Robin Dimyanoglu
-date: 02/05/2020
+date: 06/04/2020
 logsource:
     product: windows
     service: security
