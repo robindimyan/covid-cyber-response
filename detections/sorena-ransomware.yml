@@ -1,0 +1,27 @@
+title: Ransom.Sorena Detection
+id: 8e138f80-adb4-44d0-a485-f00666171984
+status: experimental
+references:
+    - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
+description: Detects Sorena Ransom Note and Task Killing Activity
+author: Robin Dimyanoglu
+date: 12/04/2020
+logsource:
+    product: windows
+    service: security
+detection:
+    selection_taskkill:
+      EventID: 4688
+      NewProcessName|endswith: 'cmd.exe'
+      CommandLine|contains:
+        - 'taskkill /F /IM sqlservr.exe /T'
+        - 'taskkill /F /IM sqlceip.exe /T'
+    selection_ransomnote:
+      EventID: 4656
+      ObjectName|endswith: '\unlock_all_files.txt'
+    condition:
+      - selection_ransomnote | count() by ProcessId > 10
+      - selection_taskkill
+falsepositives:
+  - Unknown
+level: high
