@@ -5,7 +5,7 @@ references:
     - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
 description: Detects Trickbot/Emotet Modules Security Tool Disabling and Persistency Activity
 author: Robin Dimyanoglu
-date: 02/05/2020
+date: 05/04/2020
 tags:
     - attack.persistency
     - attack.defense_evasion
