@@ -3,7 +3,7 @@
 
 # 1) Run\2019nCoV keyinin degerini al
 # 2) O pathe git, dosyayi oradan al ve masaustune .malware uzantısıyla tasi
-# 3) Run\svchos keyini sil
+# 3) Run\2019nCoV keyini sil
 # 4) Bilgisayara reboot at
 
 
