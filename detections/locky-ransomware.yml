@@ -1,0 +1,19 @@
+title: Ransom.LOCKY Detection
+id: 18b56f9c-a1fe-4b72-975a-bad1a31821b3
+status: experimental
+references:
+    - https://github.com/robindimyan/covid-cyber-response/wiki/2--Fidye-Zararl%C4%B1s%C4%B1-Tehditleri
+description: Detects Locky Registry Activity
+author: Robin Dimyanoglu
+date: 21/04/2020
+logsource:
+    product: windows
+    service: security
+detection:
+    selection_registry:
+      EventID: 4657
+      ObjectName: 'HKEY_CURRENT_USER\Software\Locky'
+    condition: selection_registry
+falsepositives:
+  - Unknown
+level: high
