@@ -33,3 +33,6 @@ Microsoft Windows işletim sisteminde aktivite gösteren Fidye zararlıları ve 
     * İncelenen her bir zararlı yazılım için uygun tespit yöntemi geliştirmek.
     * İncelenen her bir zararlı yazılım için 'Olaya Müdahale Kiti' geliştirmek.
     * Üretilen tüm içeriği ve araçları haftalık bülten halinde yayınlamak.
+
+## Supporters
+![Greynoiseio](https://images.squarespace-cdn.com/content/59c94f7de5dd5bc27643cfec/1516136002680-2TPB58LXCMAYDIYAAVS7/grey+noise+%28grey%29trans.png?format=1500w&content-type=image%2Fpng)
